@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN" "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+
+<!-- Passos:
+Definir um template
+Configurar as partes desejadas para cada Tela -->
+
+<tiles-definitions>
+
+	<!-- Definindo o Template e suas partes -->
+	<definition name="templateDefault" path= "/template/template.jsp">
+		<put name="header" value="/template/cabecalho.jsp"/>
+		<put name="menu" value="/template/menu.jsp"/>
+		<put name="body" value=""/>
+	</definition>
+	
+	<definition name=".desktopView" extends="templateDefault">
+	<!-- Mapeie o JSP de boas vindas aqui -->
+	</definition>
+	
+	<!-- Configurar as partes desejadas para cada Tela -->
+	<definition name=".turmaView" extends="templateDefault">
+		<put name="body" value="/paginas/turma/turma-formulario.jsp"/>
+	</definition>
+	<definition name=".alunoView" extends="templateDefault">
+		<put name="body" value="/paginas/aluno/aluno-formulario.jsp"/>
+	</definition>
+	<definition name=".presencaView" extends="templateDefault">
+		<put name="body" value="/paginas/presenca/presenca-formulario.jsp"/>
+	</definition>
+</tiles-definitions>

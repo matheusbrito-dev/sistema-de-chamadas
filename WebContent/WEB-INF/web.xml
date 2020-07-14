@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>sistemadechamda</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+  
+  <!-- CONFIGURANDO O STRUTS NO PROJETO -->
+  <!-- Por ser uma Servlet, o Struts 1.3.10 deve ser mapeado aqui no web.xml como se fosse uma servlet normal -->
+  <servlet>
+  	<servlet-name>struts</servlet-name>
+  	<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+  	<init-param>
+  		<param-name>config</param-name>
+  		<param-value>/WEB-INF/struts-config.xml</param-value>
+  	</init-param>
+  	<!-- PRIODIDADE DE CARREGAMENTO, Neste caso será a primeira SERVLET a ser carregada -->
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  <servlet-name>struts</servlet-name>
+  <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+</web-app>

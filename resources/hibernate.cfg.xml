@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<!-- INICIA A CONFIGURACAO DO HIBERNATE -->
+<hibernate-configuration>
+
+<!-- 	Cria uma fabrica de Sessão na qual cada sessão é resposavel por gerenciar o POOL de Conexão -->
+	<session-factory>
+	
+		<!-- Configuração padrão minima para o funcionamento e aquisição da sessão com suas conexões -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost/sistemadechamada?createDatabaseIfNotExist=true</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+		<property name="connection.pool_size">31</property>
+		<property name="connection.autocommit">false</property>
+		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="current_session_context_class">thread</property>
+		
+		<!-- É aqui que se informa se o Hibernate criará todas as tabelas automaticamente -->
+		<!-- create-drop = Apaga e cria o banco com base nas annotations cada vez que executa o BD -->
+		<!-- create = Cria a estrutura do banco de dados com base nos Models(POs) -->
+		<!-- update = Apenas atualiza a estrutura. Obs: Usado quando em Desenvolvimento -->
+		<!-- validate = Apenas valida a estrutura. Obs: Usado quando em Produção -->
+		<property name="hbm2ddl.auto">update</property>
+		
+		<!-- Aqui informamos as Classes POs que o Hibernate gerenciará -->
+		<mapping class="br.com.srcsoftware.manager.abstracts.AbstractPO"/>
+		<mapping class= "br.com.srcsoftware.sistemadechamada.modulochamada.turma.model.TurmaPO"/>
+		<mapping class= "br.com.srcsoftware.sistemadechamada.modulochamada.aluno.model.AlunoPO"/>
+		<mapping class= "br.com.srcsoftware.sistemadechamada.modulochamada.presenca.model.PresencaPO"/>
+
+		
+	</session-factory>
+
+</hibernate-configuration>
